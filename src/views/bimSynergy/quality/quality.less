@@ -1,0 +1,104 @@
+@import url('../table');
+@import url('../common.less');
+@mainColor: #7eebff;
+.quality {
+  @view-height: calc(100vh - 232px);
+  height: 100%;
+  display: flex;
+  .synergy {
+    .bimTree();
+  }
+  .details-btn {
+    padding: 0;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .left {
+    width: 400px;
+    padding: 0 @space 0 20px;
+    display: flex;
+    .tree-con {
+      height: 100%;
+      overflow: auto;
+      .screen {
+        /deep/ .tree.el-tree {
+          background: transparent;
+          color: #d2cac2;
+          .el-checkbox__inner {
+            border-color: @mainColor;
+          }
+          .el-checkbox__input.is-checked .el-checkbox__inner {
+            background: @mainColor;
+            border-color: @mainColor;
+          }
+        }
+      }
+    }
+  }
+  .center {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    .bm-con {
+      height: 100%;
+      padding: 0px 10px;
+      width: 100%;
+    }
+  }
+  .right {
+    width: 500px;
+    padding: 0 20px 0 @space;
+    display: flex;
+    .search-con {
+      padding: 0px 8px;
+      .search {
+        display: flex;
+        border: solid 1px #638399;
+        background: #142942;
+        border-radius: 4px;
+        padding: 6px 6px;
+        align-items: center;
+        justify-content: space-between;
+        .input {
+          outline: none;
+          border: 0px;
+          background: transparent;
+          color: #fff;
+          font-size: 14px;
+          width: 390px;
+        }
+        .icon {
+          width: 28px;
+          height: 14px;
+          background: url('../images/quality/qi-cha.png') 8px 0px no-repeat;
+          border-left: solid 1px @mainColor;
+          cursor: pointer;
+        }
+      }
+    }
+    .status {
+      margin-right: 10px;
+    }
+    .status-0 {
+      color: #fde521;
+    }
+    .status-1 {
+      color: #419bf9;
+    }
+    .status-2 {
+      color: #f8a715;
+    }
+    .status-3 {
+      color: #ed536d;
+    }
+    .pi-con {
+      padding: 20px 0px;
+      flex: 1;
+    }
+    /deep/.middle-content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

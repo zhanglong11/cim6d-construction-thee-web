@@ -1,0 +1,315 @@
+.wrap {
+  display: flex;
+  height: 100%;
+  color: #fff;
+  padding: 0 20px;
+  .left {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 360px;
+    .err-total {
+      flex: 1;
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        > span {
+          display: inline-flex;
+          padding: 6px 36px;
+          //border: 1px solid rgba(0, 228, 255, 0.4);
+          cursor: pointer;
+          &.active {
+            background: url('../newImages/attendance/tag-bg.png') no-repeat center;
+            background-size: 100% 100%;
+            border: 1px solid transparent;
+          }
+          & + span {
+            margin-left: 10px;
+          }
+        }
+      }
+      .select {
+        position: relative;
+        padding: 14px 0;
+        &:before,
+        &:after {
+          position: absolute;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          border-width: 1px;
+          border-style: solid;
+          content: '';
+          z-index: 55;
+        }
+        &:before {
+          top: 8px;
+          border-color: #879fb9 #879fb9 transparent transparent;
+        }
+        &:after {
+          bottom: 8px;
+          border-color: transparent #879fb9 #879fb9 transparent;
+        }
+      }
+      .err-list {
+        height: calc(100vh - 690px);
+        overflow-y: auto;
+        li {
+          position: relative;
+          border: 1px solid rgba(0, 228, 255, 0.4);
+          & + li {
+            margin-top: 10px;
+          }
+          > span {
+            &.top-back {
+              &:before,
+              &:after {
+                position: absolute;
+                top: 0;
+                content: '';
+                width: 3px;
+                height: 3px;
+                background: #76e1fc;
+              }
+              &:before {
+                left: 0;
+              }
+              &:after {
+                right: 0;
+              }
+            }
+            &.bottom-back {
+              &:before,
+              &:after {
+                position: absolute;
+                bottom: 0;
+                content: '';
+                width: 3px;
+                height: 3px;
+                background: #76e1fc;
+              }
+              &:before {
+                left: 0;
+              }
+              &:after {
+                right: 0;
+              }
+            }
+          }
+          > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+          }
+          .detail {
+            display: flex;
+            .icon {
+              width: 40px;
+              height: 40px;
+              margin-top: 16px;
+              border-radius: 50%;
+              background: url('../newImages/attendance/person-header.png') no-repeat center;
+              background-size: contain;
+            }
+            .person-info {
+              margin-left: 20px;
+              p {
+                padding: 10px 0;
+                font-size: 14px;
+                .label {
+                  color: #969797;
+                }
+                .value {
+                  color: #fff;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+          .person-status {
+            color: #65dffb;
+            .status {
+              display: inline-block;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              margin-right: 10px;
+              vertical-align: 2px;
+              &.color2 {
+                background: #df8769;
+              }
+              &.color3 {
+                background: #eaa01e;
+              }
+              &.color4 {
+                background: #eacc1c;
+              }
+              &.color5 {
+                background: #a9fc85;
+              }
+              &.color6 {
+                background: #00ffd4;
+              }
+              &.color7 {
+                background: #03e2ff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .center {
+    flex: 1;
+    margin: 0 16px;
+    .info-table {
+      .table-wrap {
+        height: calc(100vh - 640px);
+        /deep/ .el-table {
+          background: transparent;
+          .el-table__header {
+            width: auto !important;
+          }
+          .el-table__body {
+            width: auto !important;
+          }
+        }
+      }
+    }
+    .group-bar {
+      position: relative;
+      height: 300px;
+      margin-top: 16px;
+      .tab {
+        position: absolute;
+        right: 0;
+        width: 200px;
+        z-index: 5;
+        > span {
+          display: inline-block;
+          padding: 6px 36px;
+          cursor: pointer;
+          & + span {
+            margin-left: 10px;
+          }
+          &.active {
+            background: url('../newImages/attendance/tag-bg.png') no-repeat center;
+            background-size: 100% 100%;
+            border: 1px solid transparent;
+          }
+        }
+      }
+      .bar-container {
+        height: 280px;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 360px;
+    .bottom {
+      flex: 1;
+      .bottom-list {
+        height: calc(100vh - 605px);
+      }
+      li {
+        padding: 10px;
+        background: rgba(35, 37, 38, 1);
+        border-radius: 4px;
+        color: #e8e8e8;
+        & + li {
+          margin-top: 10px;
+        }
+        //background: red;
+        > h4 {
+          font-size: 14px;
+          padding-bottom: 14px;
+          font-weight: normal;
+        }
+        section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 6px 10px;
+          > div {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            .back {
+              width: 60px;
+              height: 60px;
+              margin-right: 20px;
+              background-size: contain;
+              &.total {
+                background: url('../newImages/attendance/person-total.png') no-repeat center;
+              }
+              &.actual {
+                background: url('../newImages/attendance/person-actual.png') no-repeat center;
+                &:after {
+                  //background: url('../newImages/attendance/person-actual.png') no-repeat center;
+                }
+                //border: 6px dashed red;
+              }
+            }
+            .content {
+              margin-top: 2px;
+              .num {
+                color: #fff;
+                font-size: 26px;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .group-total {
+    height: 340px;
+    .group-chart {
+      position: relative;
+      height: 240px;
+      .total {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        p {
+          text-align: center;
+          font-size: 14px;
+          .num {
+            font-size: 30px;
+          }
+          & + p {
+            margin-top: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+///deep/ .el-select-dropdown.err {
+//  //border:1px
+//  .el-select-dropdown__wrap {
+//    background: rgba(0, 0, 0, 0.7);
+//    li {
+//      color: #65dffb;
+//      &.selected,
+//      &.hover,
+//      &:hover {
+//        background: rgba(0, 0, 0, 0.7);
+//      }
+//    }
+//  }
+//}
+.table-status {
+  color: #da6756;
+  &.normal {
+    color: #77eed7;
+  }
+}

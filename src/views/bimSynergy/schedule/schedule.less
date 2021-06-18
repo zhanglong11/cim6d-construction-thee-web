@@ -1,0 +1,211 @@
+@import url('../table');
+@import url('../common.less');
+.schedule {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .synergy {
+    .bimTree();
+  }
+  .model {
+    flex: 1;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+    .model-left {
+      padding: 0 20px;
+      width: 400px;
+      display: flex;
+      .tree-con {
+        height: 100%;
+        overflow: auto;
+        .screen {
+          /deep/ .tree.el-tree {
+            background: transparent;
+            color: #d2cac2;
+            .el-checkbox__inner {
+              border-color: #f5c775;
+            }
+            .el-checkbox__input.is-checked .el-checkbox__inner {
+              background: #f5c775;
+              border-color: #f5c775;
+            }
+          }
+        }
+      }
+    }
+    .model-right {
+      flex: 1;
+      display: flex;
+      position: relative;
+      .progress-wrap {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 100px;
+        left: 50%;
+        right: 50%;
+        width: 320px;
+        margin-left: -160px;
+        z-index: 4;
+        &.hidden {
+          display: none;
+        }
+        > div {
+          background: rgba(135, 159, 185, 0.4);
+          padding: 6px 10px;
+          border-radius: 12px;
+          font-size: 12px;
+          .icon {
+            display: inline-block;
+            width: 8px;
+            height: 4px;
+            vertical-align: 2px;
+            border-radius: 2px;
+          }
+          .label {
+            margin: 0 8px;
+            color: #fff;
+          }
+          .num {
+            display: inline-flex;
+            width: 45px;
+          }
+          &.finished {
+            color: #77eed7;
+            .icon {
+              background: #77eed7;
+            }
+          }
+          &.unfinished {
+            color: #fff47f;
+            .icon {
+              background: #fff47f;
+            }
+          }
+        }
+      }
+      //.progress-wrap {
+      //  position: absolute;
+      //  top: 100px;
+      //  right: 180px;
+      //  z-index: 4;
+      //  padding: 10px;
+      //  background: rgba(0, 0, 0.4);
+      //  box-shadow: inset 0 0 10px #34312d;
+      //  &.hidden {
+      //    display: none;
+      //  }
+      //  > p {
+      //    display: flex;
+      //    color: #ffffff;
+      //    justify-content: space-around;
+      //    align-items: center;
+      //    + p {
+      //      margin-top: 10px;
+      //    }
+      //    > span {
+      //      display: block;
+      //      + span {
+      //        margin-left: 6px;
+      //      }
+      //    }
+      //    .icon {
+      //      width: 24px;
+      //      height: 24px;
+      //      background: #999;
+      //      &.yellow {
+      //        background: #ffbb29;
+      //      }
+      //    }
+      //    .num {
+      //      color: #ffbb29;
+      //      width: 60px;
+      //    }
+      //  }
+      //}
+      .bm-con {
+        padding: 0px 10px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .simulation {
+    padding: 0px 20px;
+    margin-top: @space;
+    height: 280px;
+    .container {
+      height: 100%;
+      .tick {
+        height: 0;
+      }
+      .table-wrap {
+        padding: 0px 10px;
+        /deep/ .el-table {
+          background: transparent;
+          .el-table__header {
+            width: auto !important;
+          }
+          .el-table__body {
+            width: auto !important;
+          }
+        }
+      }
+      &.show {
+        .tick {
+          margin-top: -10px;
+          height: 50px;
+        }
+      }
+    }
+  }
+  .search-btn {
+    background: linear-gradient(#085aee, #0d3a8c);
+    border: 0;
+    &:hover {
+      background: linear-gradient(#085aee, #0d3a8c);
+    }
+  }
+  .start-btn {
+    background: linear-gradient(#00d0ea, #006772);
+    border: 0;
+    &:hover {
+      background: linear-gradient(#00d0ea, #006772);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes unRotate {
+  0% {
+  }
+  50% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes toggle {
+  0% {
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

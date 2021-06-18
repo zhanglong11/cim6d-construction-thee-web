@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+    <script type="text/javascript" src="//js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+    <style>
+        .t-mask {
+            background: #0000;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('UniAppJSBridgeReady', () => {
+            let { appId } = plus.webview.currentWebview();
+            // console.log(111, appId)
+            const captcha = new TencentCaptcha(appId, res => {
+                if (res.ret === 0) {
+                    // console.log(222, JSON.stringify(res), window)
+                    window.postMessage({
+                        data: { action: 'postMessage', ticket: res.ticket, randstr: res.randstr }
+                    })
+                    location.href = `callback?ticket=${res.ticket}&randstr=${res.randstr}`;
+                }
+                setTimeout(() => {
+                    plus.webview.currentWebview().close()
+                }, 200)                
+            }, {
+                needFeedBack: false
+            })
+            captcha.show()
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+.step-p {
+  color: #97a8be;
+  height: 28px;
+}
+.drawing-item {
+  border: solid 1px #e5e5e5;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #e5e5e5;
+    padding: 4px 10px;
+  }
+  .item-con {
+    display: flex;
+    padding: 10px;
+    .left {
+      flex: 0 0 800px;
+      .img-con {
+        border: solid 1px #e5e5e5;
+        font-size: 0px;
+        position: relative;
+        img {
+          width: 800px;
+          height: 600px;
+          object-fit: contain;
+        }
+        canvas {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      overflow: auto;
+      .table-con {
+        padding: 0px 10px 10px 10px;
+        .table-title {
+          padding: 10px 0px 22px 0px;
+        }
+      }
+    }
+  }
+}
+.drawing-item:last-child {
+  margin-bottom: 0px;
+}

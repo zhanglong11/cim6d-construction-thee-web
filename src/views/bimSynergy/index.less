@@ -1,0 +1,220 @@
+@import url('./common.less');
+//滚动条样式
+.scrollbar(@width: 6px) {
+  &::-webkit-scrollbar {
+    width: @width;
+    height: @width;
+  }
+  &::-webkit-scrollbar-thumb {
+    // background-image: url('./images/roll-bg.png');
+    background-color: #266991;
+    box-shadow: 0 0 5px rgba(59, 40, 40, 0.2) inset;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #303b51;
+  }
+  &::-webkit-scrollbar-corner {
+    background: #0c1931;
+  }
+  scrollbar-color: #266991 #303b51;
+}
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0.26;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.26;
+  }
+}
+
+// less递归
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // 递归调用自身
+  &:nth-child(@{counter}){
+    animation-delay: @counter * 100ms;
+  }
+}
+.main-line{  
+  .left-line{
+    position: absolute;
+    top: 0;
+    left: 46px;
+    width: 12px;
+    height: calc(100vh - 255px);
+    display: flex;
+    flex-direction: column;
+    &:before,
+    &:after{
+      content: '';
+      width: 2px;
+      height: 30%;
+      background: @lineColor;
+      opacity: 0.26;
+    }
+    .line-con{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      span{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        &:before{
+          margin-left: -6px;
+          content: '';
+          width: 12px;
+          height: 2px;
+          background: @lineColor;
+        }
+        animation: fadeAnimation 2s infinite;
+        opacity: 0.26;
+        .loop(16);
+      }
+    }
+  }
+  .left-bottom-line{
+    width: 33px;
+    height: 60px;
+    position: absolute;
+    left: 46px;
+    bottom: 37px;
+    &:before,
+    &:after {
+      content: '';
+      width: 2px;
+      height: 30px;
+      background: @lineColor;
+      position: absolute;
+      left: 0;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      transform: rotate(135deg);
+      left: 14px;
+      bottom: -4px;
+      height: 40px;
+    }
+  }
+  .main-bottom-line{
+    width: calc(100vw - 156px);
+    height: 2px;
+    background: @lineColor;
+    position: absolute;
+    right: 46px;
+    bottom: 37px;
+    opacity: 0.26;
+    &:after{
+      content: '';
+      width: 12px;
+      height: 12px;
+      border: 2px @lineColor solid;
+      position: absolute;
+      right: -26px;
+      top: -5px;
+    }
+  }
+}
+.bim-synergy-con {
+  width: 100%;
+  height: 100%;
+  background: #161616;//url('./images/bg.jpg') center center / cover no-repeat;
+  overflow: hidden;
+  *{
+    .scrollbar;
+  }
+  .layout-main {
+    transform-origin: center 0;
+    transition: all 0.4s;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  
+    .content-wrap {
+      height: calc(100vh - 125px);
+      padding: 0 0 60px 58px;
+      position: relative;
+      .content{
+        height: 100%;
+      }
+      .fade-enter-active {
+        animation: fadeIn 0.5s;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .fade-enter-active {
+        display: block;
+      }
+  
+      .fade-leave-active {
+        display: none;
+      }
+    }
+  }
+  @import url('./table');
+  .currentTable();
+  .bimTree();
+}
+
+
+.bm-main {
+  position: relative;
+  width: 100%;
+  // display: none !important;
+  // height: calc(100vh - 151px);
+  // top: 87px;
+  // left: 0;
+  z-index: 3;
+  display: flex;
+  padding: 0 0 0 58px;
+  .left{
+    width: 400px;
+    height: 0;
+    padding: 0 @space 0 20px;
+  }
+  .center{
+    flex: 1;
+    display: flex;
+    position: relative;
+    .bm-con-model{
+      width: 100%;
+      height: calc(100vh - 151px);
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      overflow: hidden;
+    }
+    
+  }
+  .right{
+    width: 400px;
+    height: 0;
+    padding: 0 20px 0 @space;
+  }
+}
+// .bim-tools{
+//   display: none !important;
+// }
+
+
+@media screen and (max-height: 960px) {
+  .bim-synergy-con .visible-md{
+    display: none !important;
+  }
+}

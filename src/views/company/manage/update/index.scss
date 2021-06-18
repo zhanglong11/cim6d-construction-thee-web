@@ -1,0 +1,91 @@
+@import '~@/styles/variables.scss';
+
+.form-content-wrapper {
+  display: flex;
+  align-items: center;
+
+  .el-cascader {
+    width: 400px;
+  }
+  .el-icon-location{
+    font-size: 20px;
+    margin-right:10px;
+    color:#409EFF;
+    cursor: pointer;
+  }
+}
+.icon-capital{
+  font-style: normal;
+  font-size: 13px;
+  color: #606266;
+  padding: 0 5px;
+}
+.el-select,
+.el-date-editor {
+  width: 100%;
+}
+
+.el-card{
+  margin-bottom: 20px;
+}
+::v-deep .el-card__header {
+  background-color: #f5f7fa;
+}
+
+
+// 上传模块样式
+.upload-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .upload-item {
+    flex: 0 30%;
+    padding: 10px 15px;
+    border: solid 1px #dcdfe6;
+    border-radius: 4px;
+
+    .upload-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .el-image {
+
+      width: 100%;
+      height: 200px;
+      // height: auto;
+      // width: auto;
+      // max-width: 100%;
+      // min-height: 150px;
+      // max-height: 300px;
+      text-align: center;
+      background-color: #dcdfe6;
+      font-size: 30px;
+      position: relative;
+
+      ::v-deep .image-slot {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+      }
+    }
+  }
+}
+
+.el-footer{
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: $sideBarWidth;
+  height: auto !important;
+  background-color: #fff;
+  padding: 10px 20px;
+  height: 55px;
+}
+
